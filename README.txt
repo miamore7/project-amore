@@ -1,1 +1,3 @@
-p
+this is project Amore!!
+
+      Amore is a web-based application that is a gathering place for hobbyists and business enthusiasts, specifically designed to help them develop their interests into successful businesses. With various features and guides and tips, members can easily start and grow a business from their hobbies. In addition, the platform is also sponsored by the best recommended raw material manufacturers. Not only that, the platform also provides a marketplace that sells raw materials as recommended by the best suppliers. With a dynamic and diverse environment, this platform not only expands the experience in the hobby, but also helps reduce the unemployment rate in Indonesia.
