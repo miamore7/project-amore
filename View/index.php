@@ -1,3 +1,7 @@
+<php
+include('/view/navbar.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +11,6 @@
     <title>Amore</title>
 </head>
 <body>
-    
+    halo
 </body>
 </html>
