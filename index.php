@@ -1,5 +1,5 @@
-<php
-include('/view/navbar.php');
+<?php
+include('navbar.php');
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +11,6 @@ include('/view/navbar.php');
     <title>Amore</title>
 </head>
 <body>
-    halo
+    <!-- Your content goes here -->
 </body>
 </html>
