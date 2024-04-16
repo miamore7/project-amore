@@ -10,7 +10,7 @@ include('navbar.php');
     <title>Formulir Pendaftaran</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body background="img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg.jpg">
     <div class="container">
         <h1>Welcome!</h1>
         <form action="#">
