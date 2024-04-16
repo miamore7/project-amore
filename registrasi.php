@@ -40,7 +40,7 @@ include('navbar.php');
             </div>
         </form>
         <br>
-        <p style="text-align: center;">Sudah memiliki akun? <a href="login,php">Masuk di sini!</a></p>
+        <p style="text-align: center;">Sudah memiliki akun? <a href="login.php">Masuk di sini!</a></p>
     </div>
 </body>
 </html>

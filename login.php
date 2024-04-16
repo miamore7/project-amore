@@ -8,13 +8,12 @@ include('navbar.php');
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="loginstyle.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body background="img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg.jpg">
     <div class="container">
-        <h1>Selamat Datang!</h1>
+        <h1>Welcome!</h1>
         <form action="#">
-            </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Masukkan alamat email Anda" required>
@@ -24,9 +23,12 @@ include('navbar.php');
                 <input type="password" id="password" name="password" placeholder="Masukkan kata sandi Anda" required>
             </div>
             <br>
-            <button type="submit">Masuk</button>
+            <div class="form-group">
+                <input type="submit" id="submitRegister" name="password" placeholder="Masukkan kata sandi Anda" required>
+            </div>
         </form>
         <br>
+        <p style="text-align: center;">Belum memiliki akun? <a href="registrasi.php">Masuk di sini!</a></p>
     </div>
 </body>
 </html>
