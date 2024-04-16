@@ -10,9 +10,9 @@ include('navbar.php');
     <title>Formulir Pendaftaran</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body background="img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg.jpg">
     <div class="container">
-        <h1>Selamat Datang!</h1>
+        <h1>Welcome!</h1>
         <form action="#">
             <div class="form-group">
                 <label for="fullName">Nama Lengkap</label>
@@ -35,7 +35,9 @@ include('navbar.php');
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Masukkan kembali kata sandi Anda" required>
             </div> -->
             <br>
-            <button type="submit">Daftar</button>
+            <div class="form-group">
+                <input type="submit" id="submitRegister" name="password" placeholder="Masukkan kata sandi Anda" required>
+            </div>
         </form>
         <br>
         <p style="text-align: center;">Sudah memiliki akun? <a href="login,php">Masuk di sini!</a></p>
