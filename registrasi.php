@@ -38,7 +38,7 @@ include('navbar.php');
             <button type="submit">Daftar</button>
         </form>
         <br>
-        <p style="text-align: center;">Sudah memiliki akun? <a href="#">Masuk di sini!</a></p>
+        <p style="text-align: center;">Sudah memiliki akun? <a href="login,php">Masuk di sini!</a></p>
     </div>
 </body>
 </html>
