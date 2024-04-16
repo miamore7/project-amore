@@ -3,15 +3,15 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    /* background-image: url('img/Lilin\ Aromaterapi\ 150\ gr\ Scented\ Candle\ Lilin\ Aromatherapy\ Lilin\ Wangi\ -\ rose\,\ 150\ gram\ di\ Blummy\ D.jpeg.jpg'); */
+    background-image: url('img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg');
     background-size: 50%;
 }
 
 .container {
-    height: 889px;
-    width: 980px;
+    height: 870px;
+    width: 946px;
     /* margin-top: 120px; */
-    margin-left: 940px;
+    margin-left: 1100px;
     padding: 120px;
     background-color: #fff;
     font-family: "Inter", sans-serif;
