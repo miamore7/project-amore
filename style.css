@@ -8,10 +8,10 @@ body {
 }
 
 .container {
-    height: 870px;
-    width: 946px;
+    height: 887px;
+    width: 960px;
     /* margin-top: 120px; */
-    margin-left: 1100px;
+    margin-left: 960px;
     padding: 120px;
     background-color: #fff;
     font-family: "Inter", sans-serif;
