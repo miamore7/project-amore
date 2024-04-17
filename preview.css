@@ -4,6 +4,8 @@
     flex-direction: column;
     align-items: center;
     margin-top: 50px; /* Untuk memberikan jarak dari atas */
+    margin-left: auto; /* Agar video berada di tengah secara horizontal */
+    margin-right: auto; /* Agar video berada di tengah secara horizontal */
 }
 
 .video-player video {
