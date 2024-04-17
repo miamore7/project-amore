@@ -2,7 +2,7 @@
 define('DB_HOST', 'localhost'); //alamat server mysql/mariadb
 define('DB_USER', 'root'); //username database
 define('DB_PWD', ''); //password database
-define('DB_NAME', 'amore'); //nama database (schema)
+define('DB_NAME', 'amoreDB'); //nama database (schema)
 
 class DbConnection
 {

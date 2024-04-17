@@ -13,7 +13,7 @@ include('navbar.php');
 <body background="img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg.jpg">
     <div class="container">
         <h1>Welcome!</h1>
-        <form action="#">
+        <form action="loginController.php" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Masukkan alamat email Anda" required>
@@ -24,7 +24,7 @@ include('navbar.php');
             </div>
             <br>
             <div class="form-group">
-                <input type="submit" id="submitRegister" name="password" placeholder="Masukkan kata sandi Anda" required>
+                <input type="submit" id="submitLogin" name="submitLogin" value="Login">
             </div>
         </form>
         <br>
