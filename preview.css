@@ -1,0 +1,55 @@
+.video-player {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Untuk memberikan jarak dari atas */
+}
+
+.video-player video {
+    width: 100%; /* Video akan mengisi lebar penuh dari parentnya */
+    height: auto; /* Mengikuti perbandingan aspek video */
+    max-width: 800px; /* Maksimum lebar video */
+}
+
+.controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px; /* Maksimum lebar controls */
+    padding: 10px;
+    box-sizing: border-box; /* Untuk memastikan padding tidak mempengaruhi lebar total */
+    margin-top: 10px; /* Memberikan jarak antara video dan kontrol */
+}
+
+.volume-up,
+.volume-down {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #f0f0f0; /* Warna latar belakang untuk tombol volume */
+}
+
+.volume-slider {
+    width: 100%;
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Warna latar belakang untuk slider volume */
+}
+
+.volume-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #555;
+    cursor: pointer;
+}
+
+/* Merapikan tampilan slider di browser yang tidak mendukung ::-webkit-slider-thumb */
+.volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #555;
+    cursor: pointer;
+}

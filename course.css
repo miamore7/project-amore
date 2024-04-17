@@ -1,0 +1,48 @@
+.top-courses {
+    max-width: 800px;
+    margin: 50px auto 0; /* Mengatur margin atas 50px dan menggunakan auto untuk menyeting margin sisi kiri dan kanan agar rata */
+    text-align: center;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.course-item {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex; /* Mengatur tata letak item agar flex */
+    flex-direction: column; /* Menyusun konten secara vertikal */
+    align-items: center; /* Membuat konten berada di tengah secara horizontal */
+}
+
+.course-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px; /* Memberikan margin bawah pada gambar */
+}
+
+.course-item h3 {
+    margin: 0; /* Menghilangkan margin atas dan bawah */
+    font-size: 18px;
+}
+
+.course-item button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Memberikan margin atas pada tombol */
+}
+
+.course-item button:hover {
+    background-color: #555;
+}
