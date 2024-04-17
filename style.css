@@ -50,7 +50,8 @@ input[type="password"] {
     text-align: left;
 }
 
-#submitRegister {
+#submitRegister,
+#submitLogin {
     background-color: #FFD541;
     color: black;
     padding: 10px 343px;
@@ -59,7 +60,8 @@ input[type="password"] {
     cursor: pointer;
 }
 
-#submitRegister:hover {
+#submitRegister,
+#submitLogin:hover {
     background-color: green;
     color: #fff;
 }
