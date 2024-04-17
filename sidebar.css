@@ -1,15 +1,20 @@
-body, html {
-    height: 100%;
+body {
+    display: flex;
     margin: 0;
+    height: 100vh; /* Set tinggi body ke 100% dari viewport */
 }
 
 .sidebar {
     width: 200px;
-    height: 100%; /* Set height to 100% */
     background-color: #A6ABC8;
     padding: 20px;
     font-family: Arial, sans-serif;
-    box-sizing: border-box; /* Ensure padding is included in the width */
+    box-sizing: border-box;
+}
+
+.main-content {
+    flex: 1; /* Memastikan konten utama memenuhi sisa ruang yang tersedia */
+    padding: 20px;
 }
 
 .brand a {
