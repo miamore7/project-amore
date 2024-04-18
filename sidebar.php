@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="sidebar.css">
 <div class="sidebar">
  <div class="brand">
-   <a href="#">Amore</a>
+   <a href="index.php">Amore</a>
  </div>
  <nav>
    <ul>
