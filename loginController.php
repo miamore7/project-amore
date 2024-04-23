@@ -11,7 +11,7 @@ if (isset($_POST['submitLogin'])) {
         $data = $user->auth($email, $password);
 
         if ($data != null) {
-            if ($data['email'] == 'admin@example.com') {
+            if ($data['email'] == 'admin@admin') {
                 header('Location: dashboardA.php');
             } else {
                 header('Location: dashboardM.php');
