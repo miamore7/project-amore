@@ -10,7 +10,7 @@ include('navbar.php');
     <title>Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg.jpg">
+<body class="loginRegis">
     <div class="container">
         <h1>Welcome!</h1>
         <form action="loginController.php" method="POST">

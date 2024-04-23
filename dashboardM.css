@@ -46,3 +46,8 @@
 .course-item button:hover {
     background-color: #555;
 }
+
+.course-item img {
+    height: 200px;
+    width: 200px;
+}
