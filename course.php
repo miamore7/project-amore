@@ -1,27 +1,25 @@
 <?php
-include('sidebar.php');
+require('video.php');
+
+// Membuat objek dari kelas Video
+$videoObj = new Video();
+
+// Mengambil data video dari database
+$videos = $videoObj->getVideoData();
 ?>
-  <link rel="stylesheet" href="course.css">
+
+<?php include('sidebar.php'); ?>
+<link rel="stylesheet" href="course.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>
   <div class="course-grid">
+    <?php foreach($videos as $key => $video): ?>
     <div class="course-item">
-      <img src="img/ui.jpeg" alt="Learn Figma: UI/UX Design Essential Training">
-      <h3>Learn Figma: UI/UX Design Essential Training</h3>
+      <img src="img/<?php echo $video['image']; ?>" alt="<?php echo $video['title']; ?>">
+      <h3><?php echo $video['title']; ?></h3>
       <button>Start Course</button>
-      <a href="preview.php"><button>Preview</button>
+      <a href="preview.php?video_id=<?php echo $key; ?>"><button>Preview</button></a>
     </div>
-    <div class="course-item">
-      <img src="img/Code.jpeg" alt="Python For Beginners - Learn Programming">
-      <h3>Python For Beginners - Learn Programming</h3>
-      <button>Start Course</button>
-      <a href="preview.php"><button>Preview</button>
-    </div>
-    <div class="course-item">
-      <img src="img/Gitar.jpeg" alt="Acoustic Guitar And Electric Guitar Started">
-      <h3>Acoustic Guitar And Electric Guitar Started</h3>
-      <button>Start Course</button>
-      <a href="preview.php"><button>Preview</button>
+    <?php endforeach; ?>
   </div>
-  
 </div>
