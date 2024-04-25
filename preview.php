@@ -14,6 +14,7 @@ if(isset($_GET['video_id'])) {
     // Memeriksa apakah urutan video sesuai dengan parameter video_id
     if(isset($videos[$videoId])) {
         $embedLink = $videos[$videoId]['embed_link'];
+        $videoTitle = $videos[$videoId]['title']; // Ambil judul video
     } else {
         // Jika urutan video tidak valid, tampilkan pesan error
         echo "Invalid video ID!";
@@ -25,8 +26,11 @@ if(isset($_GET['video_id'])) {
     exit();
 }
 ?>
+
 <?php include('sidebar.php'); ?>
 <link rel="stylesheet" href="preview.css">
 <div class="video-player">
     <iframe width="720" height="480" src="<?php echo $embedLink; ?>" frameborder="0" allowfullscreen></iframe>
+    <h3><?php echo $videoTitle; ?></h3> <!-- Tampilkan judul video -->
 </div>
+
