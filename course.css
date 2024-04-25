@@ -25,6 +25,8 @@
     height: auto;
     border-radius: 5px;
     margin-bottom: 15px; /* Memberikan margin bawah pada gambar */
+    height: 200px;
+    width: 200px;
 }
 
 .course-item h3 {
