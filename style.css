@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    
+
 }
 
 .loginRegis {
@@ -79,4 +79,70 @@ input[type="password"] {
 a {
     color: #007bff;
     text-decoration: none;
+}
+
+.containerIndex {
+    height: auto;
+    width: auto;
+    margin-top: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding: 120px;
+    background-color: #fff;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "slnt" 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerIndex p {
+    text-align: center;
+}
+
+.containerIndex button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.stats {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.stat {
+	text-align: center;
+}
+
+/* .imagesIndex {
+	flex-basis: 50%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.imagesIndex img {
+	width: 48%;
+	margin-bottom: 20px;
+} */
+
+.imagesIndex {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.imagesIndex img {
+    width: 330px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Optional: Add margin between images */
 }

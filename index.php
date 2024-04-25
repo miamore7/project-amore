@@ -13,7 +13,38 @@ include('navbar.php')
 </head>
 
 <body class="bodyIndex">
-    <!-- Your content goes here -->
+    <div class="containerIndex">
+        <h1>Find Your Right Mentor</h1>
+        <p>Learn from experts <br> Grow your hobby</p>
+        <a href="login.php"><button>Get Started</button></a>
+        <div>
+            <br>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <p>34+</p>
+                <p>Lorem ipsum dolor sit consectetur adipiscing</p>
+            </div>
+            <div class="stat">
+                <p>245K</p>
+                <p>Lorem ipsum dolor sit consectetur adipiscing</p>
+            </div>
+            <div class="stat">
+                <p>15+</p>
+                <p>Lorem ipsum dolor sit consectetur adipiscing</p>
+            </div>
+            <div class="stat">
+                <p>4.89</p>
+                <p>Lorem ipsum dolor sit consectetur adipiscing</p>
+            </div>
+        </div>
+        <div class="imagesIndex">
+			<img src="img\Person1.jpg" alt="Person 1">
+			<img src="img\Person2.jpg" alt="Person 2">
+			<img src="img\Person3.jpg" alt="Person 3">
+			<img src="img\Person4.jpg" alt="Person 4">
+		</div>
+    </div>
 </body>
 
 </html>
