@@ -5,7 +5,7 @@
 <html>
 <head>
 	<title>Find Your Right Mentor</title>
-	<link rel="stylesheet" type="text/css" href="landingpage.css">
+	<link rel="stylesheet" type="text/css" href="css/landingpage.css">
 </head>
 <body>
 	<div class="container">

@@ -1,7 +1,7 @@
 <?php
 
 ?>
-    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="css/sidebar.css">
 <div class="sidebar">
  <div class="brand">
    <a href="index.php">Amore</a>

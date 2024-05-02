@@ -1,7 +1,7 @@
 <?php
 include('sidebar.php');
 ?>
-  <link rel="stylesheet" href="dashboardA.css">
+  <link rel="stylesheet" href="css/dashboardA.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>
   <div class="course-grid">

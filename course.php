@@ -8,7 +8,7 @@ $videosData = array(
 ?>
 
 <?php include('sidebar.php'); ?>
-<link rel="stylesheet" href="course.css">
+<link rel="stylesheet" href="css/course.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>
   <div class="course-grid">
