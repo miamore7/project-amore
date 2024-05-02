@@ -5,14 +5,14 @@ require('video.php');
 $videoObj = new Video();
 
 // Memeriksa apakah parameter video_id telah diterima dari URL
-if(isset($_GET['video_id'])) {
+if (isset($_GET['video_id'])) {
     $videoId = $_GET['video_id'];
-    
+
     // Mengambil data video berdasarkan urutan yang diberikan
     $videos = $videoObj->getVideoData();
-    
+
     // Memeriksa apakah urutan video sesuai dengan parameter video_id
-    if(isset($videos[$videoId])) {
+    if (isset($videos[$videoId])) {
         $embedLink = $videos[$videoId]['embed_link'];
     } else {
         // Jika urutan video tidak valid, tampilkan pesan error
