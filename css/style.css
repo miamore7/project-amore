@@ -11,10 +11,10 @@ body {
     background-size: 50%;
 }
 
-.bodyIndex {
-    background-image: url('img/beautiful-diwali-diya-lamps-lit-dipavali-hindu-festival-lights-celebration.jpg');
+/* .bodyIndex {
+    background-image: url('/img/beautiful-diwali-diya-lamps-lit-dipavali-hindu-festival-lights-celebration.jpg');
     background-size: 100%;
-}
+} */
 
 .container {
     height: 887px;

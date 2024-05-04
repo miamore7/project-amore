@@ -12,7 +12,7 @@ include('navbar.php')
     <title>Amore</title>
 </head>
 
-<body class="bodyIndex">
+<body class="bodyIndex" style="background-image: url('img/beautiful-diwali-diya-lamps-lit-dipavali-hindu-festival-lights-celebration.jpg')">
     <div class="containerIndex">
         <h1>Find Your Right Mentor</h1>
         <p>Learn from experts <br> Grow your hobby</p>
