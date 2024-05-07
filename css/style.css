@@ -3,12 +3,11 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-
 }
 
 .loginRegis {
     background-image: url('img/Lilin Aromaterapi 150 gr Scented Candle Lilin Aromatherapy Lilin Wangi - rose, 150 gram di Blummy D.jpeg');
-    background-size: 50%;
+    background-size: cover;
 }
 
 /* .bodyIndex {
@@ -17,18 +16,17 @@ body {
 } */
 
 .container {
-    height: 887px;
-    width: 960px;
-    /* margin-top: 120px; */
-    margin-left: 960px;
-    padding: 120px;
+    max-width: 750px;
+    padding: 50px;
+    margin-top: 100px;
     background-color: #fff;
     font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
+    font-variation-settings: "slnt" 0;
+    text-align: center; /* Mengatur teks menjadi tengah */
+    border-radius: 5px;
+    box-shadow: black;
 }
 
 h1 {
@@ -38,12 +36,13 @@ h1 {
 
 .form-group {
     margin-bottom: 15px;
+    text-align: center; /* Mengatur teks menjadi tengah */
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    text-align: left;
+    text-align: center; /* Mengatur teks label menjadi tengah */
 }
 
 input[type="text"],
@@ -51,23 +50,31 @@ input[type="email"],
 input[type="tel"],
 input[type="date"],
 input[type="password"] {
-    width: 750px;
+    width: calc(100% - 20px);
+    max-width: 500px;
+    margin: 0 auto;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 6px;
     box-sizing: border-box;
-    text-align: left;
+    text-align: center;
+    color: #FFD541;
 }
 
 #submitRegister,
 #submitLogin {
-    width: 750px;
-    background-color: #FFD541;
-    color: black;
-    padding: 10px 343px;
-    border: none;
-    border-radius: 3px;
+    width: calc(100% - 20px);
+    max-width: 100px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    text-align: center;
     cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+    background-color: #FFD541;
 }
 
 #submitRegister:hover,
