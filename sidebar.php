@@ -16,7 +16,7 @@
  </nav>
  <div class="others">
    <ul>
-     <li><a href="#"><i class="fas fa-user-plus"></i> Subscribe</a></li>
+     <li><a href="subscribe.php"><i class="fas fa-user-plus"></i> Subscribe</a></li>
      <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
    </ul>
  </div>
