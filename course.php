@@ -16,7 +16,7 @@ $videosData = array(
     <div class="course-item">
       <img src="<?php echo $video['image']; ?>" alt="<?php echo $video['title']; ?>">
       <h3><?php echo $video['title']; ?></h3>
-      <button>Start Course</button>
+      <a href="coursemenu.php"><button>Start Course</button></a>
       <a href="preview.php?video_id=<?php echo $key; ?>"><button>Preview</button></a>
     </div>
     <?php endforeach; ?>
