@@ -1,42 +1,68 @@
-<?php include('sidebar.php'); ?>
+<?php
+include('sidebar.php');
+require('dbConnection.php'); // Include the database connection file
+
+// Function to handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the chat message is set
+    if (isset($_POST["chat_message"])) {
+        // Sanitize and get the chat message
+        $chat_message = htmlspecialchars($_POST["chat_message"]);
+
+        // Check if nama parameter is set in the URL
+        if (isset($_GET["nama"])) {
+            // Handle request to retrieve forum data based on name
+            $nama = $_GET["nama"];
+
+            // Insert the chat message into the database
+            $sql = "INSERT INTO forum (nama, daftar_chat) VALUES (:nama, :chat_message)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nama', $nama);
+            $stmt->bindParam(':chat_message', $chat_message);
+            $stmt->execute();
+        }
+    }
+}
+
+// Check if nama parameter is set in the URL
+if (isset($_GET["nama"])) {
+    // Handle request to retrieve forum data based on name
+    $nama = $_GET["nama"];
+
+    // Execute query to retrieve forum data based on name
+    $sql = "SELECT * FROM forum WHERE nama = :nama";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':nama', $nama);
+    $stmt->execute();
+    $forums = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // Display forum data
+    if (count($forums) > 0) {
+        echo "<table>";
+        foreach ($forums as $forum) {
+            echo "<tr>";
+            echo "<td>" . $forum["daftar_chat"] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "0 results";
+    }
+}
+?>
+
+<!-- Form to submit chat messages -->
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?nama=" . $_GET["nama"]; ?>">
+    <label for="chat_message">Chat Message:</label><br>
+    <textarea id="chat_message" name="chat_message" rows="4" cols="50"></textarea><br>
+    <input type="submit" value="Send Chat">
+</form>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat Example</title>
-  <link rel="stylesheet" href="css/forum.css">
-</head>
+  <title>Your Page Title</title>
+  <link rel="stylesheet" href="css/forum.css">  </head>
 <body>
-  <div class="container">
-    <div class="chat-container">
-      <div class="message">
-        <div class="message-content">
-          UXR/UX: You can only bring one item to a remote island to assist your research of native use of tools and usability. What do you bring? #TellMeAboutYou
-        </div>
-      </div>
-      <div class="message">
-        <div class="message-content">
-          Y'all ready for this next post?
-        </div>
-      </div>
-      <div class="message">
-        <div class="message-content">
-          Kobe's passing is really sticking w/ me in a way I didn't expect. <br><br>
-          He was an icon, the kind of person who wouldn't die this way. My wife compared it to Princess Di's accident. <br><br>
-          But the end can happen for anyone at any time, & I can't help but think of anything else lately.
-        </div>
-      </div>
-      <div class="message">
-        <div class="message-content">
-          UXR/UX: You can only bring one item to a remote island to assist your research of native use of tools and usability. What do you bring? #TellMeAboutYou
-        </div>
-      </div>
-      <div class="input-container">
-        <input type="text" placeholder="Type your message...">
-        <button>Send</button>
-      </div>
-    </div>
-  </div>
+
 </body>
 </html>
