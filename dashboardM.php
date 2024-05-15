@@ -1,8 +1,8 @@
 <?php
-session_start(); // Memulai sesi di awal skrip
+// session_start(); // Memulai sesi di awal skrip
 
 // Memeriksa apakah pengguna sudah login
-if (!isset($_SESSION['username'])) {
+if (isset($_SESSION['email'])) {
     // Jika pengguna belum login, arahkan ke halaman login
     header("Location: login.php");
     exit(); // Menghentikan eksekusi skrip lebih lanjut

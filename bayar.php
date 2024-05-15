@@ -3,7 +3,7 @@
 session_start();
 
 // Memeriksa apakah pengguna sudah login
-if (!isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     // Jika pengguna belum login, arahkan ke halaman login
     header("Location: login.php");
     exit(); // Menghentikan eksekusi skrip lebih lanjut
