@@ -8,6 +8,7 @@ $videosData = array(
 ?>
 
 <?php include('sidebar.php'); ?>
+<a href="tambahCourse.php">Tambah Course</a>
 <link rel="stylesheet" href="css/course.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>
