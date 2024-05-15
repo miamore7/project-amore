@@ -13,6 +13,9 @@ include('navbar.php');
 <body class="loginRegis" style="background-image: url('img/Lilin\ Aromaterapi\ 150\ gr\ Scented\ Candle\ Lilin\ Aromatherapy\ Lilin\ Wangi\ -\ rose\,\ 150\ gram\ di\ Blummy\ D.jpeg');">
     <div class="container">
         <h1>Welcome!</h1>
+        <div>
+            <span><?= @$_GET['pesan']; ?></span>
+        </div>
         <form action="loginController.php" method="POST">
             <div class="form-group">
                 <label for="email">Email</label>
