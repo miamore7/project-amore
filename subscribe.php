@@ -1,4 +1,13 @@
 <?php
+session_start(); // Memulai sesi di awal skrip
+
+// Memeriksa apakah pengguna sudah login
+if (!isset($_SESSION['username'])) {
+    // Jika pengguna belum login, arahkan ke halaman login
+    header("Location: login.php");
+    exit(); // Menghentikan eksekusi skrip lebih lanjut
+}
+
 include('sidebar.php');
 ?>
 

@@ -1,4 +1,13 @@
 <?php
+session_start(); // Memulai sesi di awal skrip
+
+// Memeriksa apakah pengguna sudah login
+if (!isset($_SESSION['username'])) {
+    // Jika pengguna belum login, arahkan ke halaman login
+    header("Location: login.php");
+    exit(); // Menghentikan eksekusi skrip lebih lanjut
+}
+
 require('video.php');
 
 // Membuat objek dari kelas Video
@@ -27,7 +36,9 @@ if (isset($_GET['video_id'])) {
 }
 ?>
 
-<?php include('sidebar.php'); ?>
+<?php 
+
+include('sidebar.php'); ?>
 <link rel="stylesheet" href="css/preview.css">
 <div class="video-player">
     <iframe width="720" height="480" src="<?php echo $embedLink; ?>" frameborder="0" allowfullscreen></iframe>
