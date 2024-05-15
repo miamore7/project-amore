@@ -63,7 +63,10 @@ if (isset($_POST['start_subscribe'])) {
             <div class="button-group">
                 <form method="post">
                     <button class="cancel-btn" name="cancel_subscribe">Cancel</button>
-                    <button class="start-btn" name="start_subscribe">Start</button>
+                    <div class="subsBtn">
+    <a href="subsController.php">Start</a>
+</div>
+
                 </form>
             </div>
         </div>
