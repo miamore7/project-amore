@@ -61,11 +61,12 @@ if (isset($_GET["nama"])) {
 ?>
 
 <!-- Form to submit chat messages -->
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?nama=" . $_GET["nama"]; ?>">
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?nama=" . urlencode($nama); ?>">
     <label for="chat_message">Chat Message:</label><br>
     <textarea id="chat_message" name="chat_message" rows="4" cols="50"></textarea><br>
     <input type="submit" value="Send Chat">
 </form>
+
 <!DOCTYPE html>
 <html>
 <head>
