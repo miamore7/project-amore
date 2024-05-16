@@ -9,6 +9,7 @@ if (isset($_SESSION['email'])) {
 }
 include('sidebar.php');
 ?>
+
 <div>
     <h1 style="padding: 10px 10px 10px 50px">
         Learn from experts
