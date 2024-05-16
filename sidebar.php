@@ -11,7 +11,11 @@
      <li><a href="dashboardM.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
      <li><a href="#"><i class="fas fa-shopping-cart"></i> Pasar</a></li>
      <li><a href="course.php"><i class="fas fa-book"></i> Course</a></li>
+<<<<<<< HEAD
      <li><a href="pilihForum.php"><i class="fas fa-comments"></i> Forum</a></li>
+=======
+     <li><a href="forum.php"><i class="fas fa-comments"></i> Forum</a></li>
+>>>>>>> 5770f7914e0636967c32e3bcf93b9ab652613cea
    </ul>
  </nav>
  <div class="others">
