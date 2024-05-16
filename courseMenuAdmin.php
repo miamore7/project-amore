@@ -25,7 +25,7 @@ $subCourses = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
 $conn = null; // Tutup koneksi
 ?>
-<link rel="stylesheet" href="css/coursemenu.css">
+<link rel="stylesheet" href="css/courseMenu.css">
 <div class="top-courses">
   <div class="course-content">
     <h2><?php echo htmlspecialchars($courseTitle); ?></h2>

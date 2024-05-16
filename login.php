@@ -1,4 +1,5 @@
 <?php
+session_start(); // Memulai sesi
 include('navbar.php');
 ?>
 

@@ -5,12 +5,15 @@ if (isset($_POST['submitLogin'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = new User(null, null, null,null);
+    $user = new User(null, null, null, null);
 
     if ($email != null && $password != null) {
         $data = $user->auth($email, $password);
 
         if ($data != null) {
+            // Autentikasi berhasil, simpan email ke dalam session
+            $_SESSION['email'] = $email;
+
             if ($data['email'] == 'admin@admin') {
                 header('Location: dashboardA.php');
             } else {
@@ -21,4 +24,5 @@ if (isset($_POST['submitLogin'])) {
         }
     }
 }
+
 ?>
