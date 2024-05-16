@@ -1,6 +1,7 @@
 <?php
 // Start session
 session_start();
+include('sidebar.php');
 
 // Check if user is not logged in
 if (isset($_SESSION['user_id'])) {
@@ -12,30 +13,26 @@ if (isset($_SESSION['user_id'])) {
 // Get the user's full name from session
 $fullName = $_SESSION['user']['fullName'];
 
-include('sidebar.php');
-
 // Check if the "Start" button has been pressed
 if (isset($_POST['start_subscribe'])) {
-    // Ensure you are logged in and have a valid user ID in the session
-    if (isset($_SESSION['user_id'])) {
-        // Connect to the database
-        require('dbConnection.php');
+    // Connect to the database
+    require('dbConnection.php');
 
-        // Get the user ID from the session
-        $user_id = $_SESSION['user_id'];
+    // Get the user ID from the session
+    $user_id = $_SESSION['user_id'];
 
-        // Update the user's status
-        $sql = "UPDATE user SET status = 1 WHERE idUser = :user_id";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':user_id', $user_id);
-        if ($stmt->execute()) {
-            // Save success message in session
-            $_SESSION['message'] = "Status berhasil diubah.";
-        } else {
-            // Save error message in session
-            $_SESSION['message'] = "Terjadi kesalahan saat mengubah status.";
-        }
+    // Update the user's status
+    $sql = "UPDATE user SET status = 1 WHERE idUser = :user_id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id);
+    if ($stmt->execute()) {
+        // Save success message in session
+        $_SESSION['message'] = "Status berhasil diubah.";
+    } else {
+        // Save error message in session
+        $_SESSION['message'] = "Terjadi kesalahan saat mengubah status.";
     }
+
     // Redirect to prevent form resubmission
     header("Location: subscribe.php");
     exit();
@@ -50,6 +47,7 @@ if (isset($_POST['cancel_subscribe'])) {
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
