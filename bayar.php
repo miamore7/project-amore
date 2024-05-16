@@ -3,36 +3,40 @@
 
 include('sidebar.php');
 
-// Check if user is not logged in
+// Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['user_id'])) {
-    // Redirect to login page
+    // Jika pengguna belum login, arahkan ke halaman login
     header("Location: login.php");
-    exit();
+    exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
 // Get the user's full name from session
 
 
-// Check if the "Start" button has been pressed
+include('sidebar.php');
+
+// Memeriksa apakah tombol "Start" telah ditekan
 if (isset($_POST['start_subscribe'])) {
-    // Connect to the database
-    require('dbConnection.php');
+    // Ensure you are logged in and have a valid user ID in the session
+    if (isset($_SESSION['user_id'])) {
+        // Connect to the database
+        require('dbConnection.php');
 
-    // Get the user ID from the session
-    $user_id = $_SESSION['user_id'];
+        // Get the user ID from the session
+        $user_id = $_SESSION['user_id'];
 
-    // Update the user's status
-    $sql = "UPDATE user SET status = 1 WHERE idUser = :user_id";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':user_id', $user_id);
-    if ($stmt->execute()) {
-        // Save success message in session
-        $_SESSION['message'] = "Status berhasil diubah.";
-    } else {
-        // Save error message in session
-        $_SESSION['message'] = "Terjadi kesalahan saat mengubah status.";
+        // Update the user's status
+        $sql = "UPDATE user SET status = 1 WHERE idUser = :user_id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id);
+        if ($stmt->execute()) {
+            // Save success message in session
+            $_SESSION['message'] = "Status berhasil diubah.";
+        } else {
+            // Save error message in session
+            $_SESSION['message'] = "Terjadi kesalahan saat mengubah status.";
+        }
     }
-
     // Redirect to prevent form resubmission
     header("Location: subscribe.php");
     exit();
@@ -47,7 +51,6 @@ if (isset($_POST['cancel_subscribe'])) {
     exit();
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,14 +60,6 @@ if (isset($_POST['cancel_subscribe'])) {
 <body>
     <div class="container">
         <h2>Start Subscribe</h2>
-        <?php
-        // Display notification message if exists
-        if (isset($_SESSION['message'])) {
-            echo "<p>{$_SESSION['message']}</p>";
-            // Remove message from session after displaying
-            unset($_SESSION['message']);
-        }
-        ?>
         <p>Billed</p>
         <p>Payment Information</p>
         <div class="subscribe-section">
@@ -84,10 +79,12 @@ if (isset($_POST['cancel_subscribe'])) {
             <div class="button-group">
                 <form method="post">
                     <button class="cancel-btn" name="cancel_subscribe">Cancel</button>
-                    <button class="subsBtn" name="start_subscribe">Start</button>
+                    <div class="subsBtn">
+    <a href="subsController.php">Start</a>
+</div>
+
                 </form>
             </div>
         </div>
     </div>
 </body>
-</html>
