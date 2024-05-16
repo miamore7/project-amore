@@ -1,6 +1,7 @@
 <?php
 // Mulai sesi
 session_start();
+include('sidebar.php');
 
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['user_id'])) {
@@ -9,34 +10,49 @@ if (isset($_SESSION['user_id'])) {
     exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
-// Proses login pengguna
-if (isset($_POST['login'])) {
-    // Di sini Anda dapat memeriksa kredensial pengguna dan mengambil ID pengguna dari database
-    // Misalnya, jika proses login berhasil dan Anda memiliki ID pengguna, Anda dapat menetapkan ID pengguna ke dalam sesi
-    $user_id = 123; // Ganti dengan ID pengguna yang sesuai setelah login berhasil
-    $_SESSION['user_id'] = $user_id;
-}
+// Get the user's full name from session
+$fullName = $_SESSION['user']['fullName'];
 
 include('sidebar.php');
 
 // Memeriksa apakah tombol "Start" telah ditekan
 if (isset($_POST['start_subscribe'])) {
-    // Pastikan Anda telah login dan memiliki ID pengguna yang valid dalam sesi
+    // Ensure you are logged in and have a valid user ID in the session
     if (isset($_SESSION['user_id'])) {
-        // Sambungkan ke database
+        // Connect to the database
         require('dbConnection.php');
 
-        // Ambil ID pengguna dari session
+        // Get the user ID from the session
         $user_id = $_SESSION['user_id'];
 
-        // Perbarui status pengguna
-        $sql = "UPDATE users SET status = 1 WHERE id = :user_id";
+        // Update the user's status
+        $sql = "UPDATE user SET status = 1 WHERE idUser = :user_id";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':user_id', $user_id);
-        $stmt->execute();
+        if ($stmt->execute()) {
+            // Save success message in session
+            $_SESSION['message'] = "Status berhasil diubah.";
+        } else {
+            // Save error message in session
+            $_SESSION['message'] = "Terjadi kesalahan saat mengubah status.";
+        }
     }
+    // Redirect to prevent form resubmission
+    header("Location: subscribe.php");
+    exit();
+}
+
+// Check if the "Cancel" button has been pressed
+if (isset($_POST['cancel_subscribe'])) {
+    // Perform cancel subscription logic here
+    // For example, redirect to a different page or show a message
+    $_SESSION['message'] = "Subscription has been cancelled.";
+    header("Location: subscribe.php");
+    exit();
 }
 ?>
+<!DOCTYPE html>
+<html>
 <head>
     <title>Subscription Page</title>
     <link rel="stylesheet" href="css/bayar.css">
