@@ -1,6 +1,12 @@
 <?php
 include('sidebarAdmin.php');
 ?>
+<?php
+echo '<pre>';
+session_start();
+var_dump($_SESSION['user']['fullName']);
+echo '</pre>';
+?>
   <link rel="stylesheet" href="css/dashboardA.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>

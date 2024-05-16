@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('User.php');
 
 if (isset($_POST['submitLogin'])) {
@@ -12,8 +13,8 @@ if (isset($_POST['submitLogin'])) {
 
         if ($data != null) {
             // Autentikasi berhasil, simpan email ke dalam session
-            $_SESSION['email'] = $email;
-
+            // $_SESSION['email'] = $email;
+            $_SESSION['user']=$data;
             if ($data['email'] == 'admin@admin') {
                 header('Location: dashboardA.php');
             } else {
