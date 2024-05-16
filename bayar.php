@@ -1,19 +1,11 @@
 <?php
-// Mulai sesi
-
 include('sidebar.php');
-
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['user_id'])) {
     // Jika pengguna belum login, arahkan ke halaman login
     header("Location: login.php");
     exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
-
-// Get the user's full name from session
-
-
-include('sidebar.php');
 
 // Memeriksa apakah tombol "Start" telah ditekan
 if (isset($_POST['start_subscribe'])) {
