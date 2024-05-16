@@ -1,6 +1,6 @@
 <?php 
-
 include('sidebar.php'); 
+
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
     // Jika pengguna belum login, arahkan ke halaman login

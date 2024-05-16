@@ -1,5 +1,5 @@
 <?php
-session_start(); // Memulai sesi di awal skrip
+include('sidebar.php');
 
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
@@ -11,7 +11,7 @@ if (isset($_SESSION['email'])) {
 
 // Sambungkan ke database
 include('dbConnection.php');
-include('sidebar.php');
+
 // Tangkap nama dan sub course dari URL query string
 $courseTitle = isset($_GET['title']) ? $_GET['title'] : '';
 $subCourse = isset($_GET['sub_course']) ? $_GET['sub_course'] : '';
