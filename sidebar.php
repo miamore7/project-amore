@@ -1,10 +1,12 @@
 <?php
-
+session_start();
+$fullName = ($_SESSION['user']['fullName']);
 ?>
     <link rel="stylesheet" href="css/sidebar.css">
 <div class="sidebar">
  <div class="brand">
    <a href="index.php">Amore</a>
+   <h4>Halo, <?php echo htmlspecialchars($fullName); ?></h4>
  </div>
  <nav>
    <ul>

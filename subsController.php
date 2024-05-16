@@ -1,39 +1,28 @@
 <?php
 session_start();
 
-// Memeriksa apakah pengguna sudah login
-if (isset($_SESSION['email'])) {
-    // Jika pengguna belum login, arahkan ke halaman login
-    header("Location: login.php");
-    exit(); // Menghentikan eksekusi skrip lebih lanjut
+// Memeriksa apakah email ada di session
+if (!isset($_SESSION['email'])) {
+    die("Error: Email tidak ditemukan dalam sesi.");
 }
 
 // Mengambil email dari session
 $email = $_SESSION['email'];
 
-// Melakukan koneksi ke database (ganti dengan detail koneksi sesuai dengan konfigurasi Anda)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "amoredb";
+// Menggunakan koneksi database dari dbConnection.php
+$conn = require 'dbConnection.php';
 
-// Membuat koneksi
-$conn = new mysqli($servername, $username, $password, $database);
+// Mengupdate status pengguna menjadi 1 dengan prepared statement
+$stmt = $conn->prepare("UPDATE user SET status = 1 WHERE email = ?");
+$stmt->bind_param("s", $email);
 
-// Memeriksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi ke database gagal: " . $conn->connect_error);
-}
-
-// Mengupdate status pengguna menjadi 1
-$sql = "UPDATE user SET status = 1 WHERE email = '$email'";
-
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute() === TRUE) {
     echo "Status telah diperbarui menjadi 1 untuk pengguna dengan email: $email";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $stmt->error;
 }
 
-// Menutup koneksi
+// Menutup statement dan koneksi
+$stmt->close();
 $conn->close();
 ?>
