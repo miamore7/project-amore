@@ -1,11 +1,13 @@
-.chat-form {
+form{
+  margin-right: auto;
+}
+/* .chat-form {
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 5px;
-}
+} */
 /* Style the chat message text area */
 #chat_message {
-  width: 100%;
   height: 150px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -14,9 +16,7 @@
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
-  margin-top: 750px;
-  margin-left: 500px;
-
+  margin-top: 550px;
 }
 
 /* Style the send button */
@@ -32,7 +32,6 @@ input[type="submit"] {
   cursor: pointer;
   border-radius: 5px;
   margin-top: 20px;
-  margin-left: 500px;
 }
 
 /* Add hover effect to send button */
@@ -40,4 +39,14 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-
+table{
+  height: fit-content;
+  /* border: 1px solid; */
+  margin-top: 50px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+label{
+  /* border: 1px solid; */
+}
