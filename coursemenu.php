@@ -2,13 +2,20 @@
 include('sidebar.php'); 
 
 // Memeriksa apakah pengguna sudah login
+
 if (isset($_SESSION['email'])) {
     // Jika pengguna belum login, arahkan ke halaman login
     header("Location: login.php");
     exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
-
+// Memeriksa status pengguna
+$userStatus = $_SESSION['user']['status']; // Gantilah 'user_status' dengan nama variabel status pengguna Anda
+if ($userStatus != 1) {
+    // Jika status pengguna bukan 1, arahkan kembali ke halaman kursus
+    header("Location: course.php");
+    exit();
+}
 
 // Sambungkan ke database
 include('dbConnection.php');
