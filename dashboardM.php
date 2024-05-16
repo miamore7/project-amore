@@ -3,14 +3,17 @@
 
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
-    // Jika pengguna belum login, arahkan ke halaman login
-    header("Location: login.php");
-    exit(); // Menghentikan eksekusi skrip lebih lanjut
+  // Jika pengguna belum login, arahkan ke halaman login
+  header("Location: login.php");
+  exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
 include('sidebar.php');
+
+// $fullName = ($_SESSION['user']['fullName']);
+// var_dump($fullName);
 ?>
-  <link rel="stylesheet" href="css/dashboardM.css">
+<link rel="stylesheet" href="css/dashboardM.css">
 <div class="top-courses">
   <h2>TOP COURSES</h2>
   <div class="course-grid">
