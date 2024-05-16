@@ -1,14 +1,34 @@
-form{
-  margin-right: auto;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
 }
-/* .chat-form {
-  border: 1px solid #ddd;
+
+.chat-container {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ccc;
   padding: 10px;
-  border-radius: 5px;
-} */
+  overflow-y: scroll;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
 /* Style the chat message text area */
 #chat_message {
-  height: 150px;
+  height: 100px;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 2px solid #ccc;
@@ -16,7 +36,13 @@ form{
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
-  margin-top: 550px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-right: auto;
 }
 
 /* Style the send button */
@@ -39,14 +65,16 @@ input[type="submit"]:hover {
   background-color: #45a049;
 }
 
-table{
+table {
   height: fit-content;
-  /* border: 1px solid; */
   margin-top: 50px;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
-label{
-  /* border: 1px solid; */
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
 }
