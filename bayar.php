@@ -1,6 +1,6 @@
 <?php
 // Mulai sesi
-session_start();
+
 include('sidebar.php');
 
 // Check if user is not logged in
@@ -11,7 +11,7 @@ if (isset($_SESSION['user_id'])) {
 }
 
 // Get the user's full name from session
-$fullName = $_SESSION['user']['fullName'];
+
 
 // Check if the "Start" button has been pressed
 if (isset($_POST['start_subscribe'])) {
