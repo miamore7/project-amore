@@ -7,17 +7,16 @@ $videosData = array(
 );
 ?>
 
-<?php include('sidebar.php'); ?>
+<?php include('sidebarAdmin.php'); ?>
 <link rel="stylesheet" href="css/course.css">
 <div class="top-courses">
-  <h2>TOP COURSES</h2>
   <div class="course-grid">
     <?php foreach($videosData as $key => $video): ?>
     <div class="course-item">
       <img src="<?php echo $video['image']; ?>" alt="<?php echo $video['title']; ?>">
       <h3><?php echo $video['title']; ?></h3>
-      <a href="coursemenu.php?title=<?php echo urlencode($video['title']); ?>"><button>Start Course</button></a>
-      <a href="preview.php?video_id=<?php echo $key; ?>"><button>Preview</button></a>
+      <a href="courseMenuAdmin.php?title=<?php echo urlencode($video['title']); ?>"><button>Start Course</button></a>
+      <a href="previewAdmin.php?video_id=<?php echo $key; ?>"><button>Preview</button></a>
     </div>
     <?php endforeach; ?>
   </div>

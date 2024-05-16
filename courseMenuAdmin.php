@@ -8,7 +8,7 @@ if (isset($_SESSION['email'])) {
     exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
-include('sidebar.php'); 
+include('sidebarAdmin.php'); 
 
 // Sambungkan ke database
 include('dbConnection.php');
@@ -37,7 +37,7 @@ $conn = null; // Tutup koneksi
           <input type="hidden" name="course_id" value="<?php echo $courseId; ?>">
           <input type="hidden" name="course_title" value="<?php echo htmlspecialchars($courseTitle); ?>">
           <input type="hidden" name="sub_course" value="<?php echo $subCourse; ?>">
-          <a href="courseDetailsUser.php?title=<?php echo urlencode($courseTitle); ?>&sub_course=<?php echo urlencode($subCourse); ?>"> 
+          <a href="courseDetailsAdmin.php?title=<?php echo urlencode($courseTitle); ?>&sub_course=<?php echo urlencode($subCourse); ?>"> 
     <button type="button">Start Course</button>
 </a>
 
@@ -47,5 +47,7 @@ $conn = null; // Tutup koneksi
       <?php endforeach; ?>
     </div>
   </div>
-
+  <a href="tambahCourse.php?title=<?php echo urlencode($courseTitle); ?>"> 
+    <button type="submit">Tambah Course</button>
+  </a>
 </div>

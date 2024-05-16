@@ -45,6 +45,6 @@
     margin-top: 10px; /* Memberikan margin atas pada tombol */
 }
 
-.course-item button:hover {
-    background-color: #555;
+.tambah-course-button:hover {
+background-color: #45a049; /* Darker green on hover */
 }
