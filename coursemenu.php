@@ -1,6 +1,6 @@
 <?php 
-session_start(); // Memulai sesi di awal skrip
 
+include('sidebar.php'); 
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
     // Jika pengguna belum login, arahkan ke halaman login
@@ -8,7 +8,7 @@ if (isset($_SESSION['email'])) {
     exit(); // Menghentikan eksekusi skrip lebih lanjut
 }
 
-include('sidebar.php'); 
+
 
 // Sambungkan ke database
 include('dbConnection.php');
