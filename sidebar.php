@@ -19,7 +19,7 @@ $fullName = ($_SESSION['user']['fullName']);
  <div class="others">
    <ul>
      <li><a href="subscribe.php"><i class="fas fa-user-plus"></i> Subscribe</a></li>
-     <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+     <li><a href="profileManagement.php"><i class="fas fa-user"></i> Profile</a></li>
      <li><a href="logout.php"><i class="fas fa-user"></i> Log Out</a></li>
    </ul>
  </div>
