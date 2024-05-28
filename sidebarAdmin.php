@@ -9,7 +9,7 @@
  <nav>
    <ul>
      <li><a href="dashboardA.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-     <li><a href="#"><i class="fas fa-shopping-cart"></i> Pasar</a></li>
+     <li><a href="pasarAdmin.php"><i class="fas fa-shopping-cart"></i> Pasar</a></li>
      <li><a href="courseAdmin.php"><i class="fas fa-book"></i> Course</a></li>
    </ul>
  </nav>
