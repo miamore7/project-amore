@@ -35,7 +35,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $jenis_course = $_POST['jenis_course'];
 
             if ($stmt->execute()) {
-                echo "New record created successfully";
+                // Redirect to pasarAdmin.php after successful insertion
+                header("Location: pasarAdmin.php");
+                exit(); // Ensure no further code is executed
             } else {
                 echo "Error: " . $stmt->errorInfo()[2];
             }
