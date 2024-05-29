@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idUser = ($_SESSION['user']['idUser']);
 $fullName = ($_SESSION['user']['fullName']);
 ?>
     <link rel="stylesheet" href="css/sidebar.css">

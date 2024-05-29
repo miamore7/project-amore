@@ -1,5 +1,5 @@
 <?php
-session_start(); // Memulai sesi di awal skrip
+// session_start(); // Memulai sesi di awal skrip
 
 // Memeriksa apakah pengguna belum login
 if (isset($_SESSION['email'])) {

@@ -31,7 +31,7 @@ try {
         if (isset($_POST['action'])) {
             $action = $_POST['action'];
             $id = $_POST['id'];
-
+    
             if ($action == 'delete') {
                 // Kode untuk delete
                 $stmt = $conn->prepare("DELETE FROM pasar WHERE id=:id");

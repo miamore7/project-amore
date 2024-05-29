@@ -1,16 +1,15 @@
 <?php
-// session_start(); // Memulai sesi di awal skrip
+// session_start();
 
-// Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
     header("Location: login.php");
-    exit(); // Menghentikan eksekusi skrip lebih lanjut
+    exit();
 }
 
 $servername = "localhost";
-$username = "root"; // Ubah sesuai kebutuhan
-$password = ""; // Ubah sesuai kebutuhan
-$dbname = "amoredb"; // Ubah sesuai kebutuhan
+$username = "root";
+$password = "";
+$dbname = "amoredb";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -19,7 +18,6 @@ try {
     if (isset($_GET['jenis_course'])) {
         $jenis_course = $_GET['jenis_course'];
 
-        // Ambil data dari database berdasarkan jenis_course
         $stmt = $conn->prepare("SELECT * FROM pasar WHERE jenis_course = :jenis_course");
         $stmt->bindParam(':jenis_course', $jenis_course);
         $stmt->execute();
@@ -29,16 +27,37 @@ try {
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
+
+include('sidebar.php');
 ?>
-<?php include('sidebar.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Pasar</title>
-    <link rel="stylesheet" href="css/contoh2.css">
-    <style>
+    <!-- <link rel="stylesheet" href="css/contoh2.css"> -->
+</head>
+<body>
+    <div class="product-container">
+        <?php if (!empty($result)) : ?>
+            <?php foreach ($result as $row) : ?>
+                <div class="product-card">
+                    <img src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['nama_barang']) ?>">
+                    <h3><?= number_format(htmlspecialchars($row['harga']), 0, ',', '.') ?></h3>
+                    <p><?= htmlspecialchars($row['nama_barang']) ?></p>
+                    <form method="GET" action="confirmPurchase.php">
+                        <input type="hidden" name="id_barang" value="<?= htmlspecialchars($row['id']) ?>">
+                        <button type="submit" name="beli">Beli</button>
+                    </form>
+                </div>
+            <?php endforeach; ?>
+        <?php else : ?>
+            <p>Belum ada barang</p>
+        <?php endif; ?>
+    </div>
+</body>
+<style>
         .product-container {
             display: flex;
             flex-direction: column;
@@ -76,21 +95,4 @@ try {
             border-radius: 5px;
         }
     </style>
-</head>
-<body>
-    <?php if (!empty($result)) : ?>
-        <div class="product-container">
-            <?php foreach ($result as $row) : ?>
-                <div class="product-card">
-                    <img src="<?= htmlspecialchars($row['gambar']) ?>" alt="<?= htmlspecialchars($row['nama_barang']) ?>">
-                    <h3><?= number_format(htmlspecialchars($row['harga']), 0, ',', '.') ?></h3>
-                    <p><?= htmlspecialchars($row['nama_barang']) ?></p>
-                    <button type="button">Beli</button>
-                </div>
-            <?php endforeach; ?>
-        </div>
-    <?php else : ?>
-        <p>Belum ada barang wkwkw</p>
-    <?php endif; ?>
-</body>
 </html>
