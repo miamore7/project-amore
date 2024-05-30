@@ -107,7 +107,7 @@ try {
                             <button type="button" class="update-btn" onclick="showUpdateForm(<?= $row['id'] ?>)">Update</button>
                         </td>
                         <td>
-                            <form method="post">
+                            <form method="post" onsubmit="return confirmDelete()">
                                 <input type="hidden" name="id" value="<?= $row['id'] ?>">
                                 <input type="hidden" name="action" value="delete">
                                 <button type="submit" class="delete-btn">Delete</button>
@@ -144,6 +144,10 @@ try {
             } else {
                 form.style.display = 'none';
             }
+        }
+
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this item?");
         }
     </script>
 </body>
