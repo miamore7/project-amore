@@ -103,3 +103,13 @@ nav ul li a i {
     height: 250px;
     width: 250px;
 }
+
+.profile-photo {
+    width: 100px; /* Atur ukuran sesuai kebutuhan */
+    height: 100px; /* Atur ukuran sesuai kebutuhan */
+    border-radius: 50%; /* Buat gambar menjadi lingkaran */
+    object-fit: cover; /* Potong gambar agar sesuai dalam lingkaran */
+    display: block;
+    margin: 0 auto; /* Pusatkan gambar */
+    margin-bottom: 10px;
+}

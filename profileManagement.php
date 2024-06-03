@@ -7,7 +7,7 @@ include('dbConnection.php');
 
 // Fetch user data based on session
 $fullName = $_SESSION['user']['fullName'];
-$query = "SELECT idUser, fullName, phoneNumber, email, password, status FROM user WHERE fullName = :fullName";
+$query = "SELECT idUser, fullName, phoneNumber, email, password, status, profilePhoto FROM user WHERE fullName = :fullName";
 $stmt = $conn->prepare($query);
 $stmt->bindParam(":fullName", $fullName);
 $stmt->execute();
@@ -19,24 +19,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $profilePhoto = $user['profilePhoto']; // Default to existing photo
 
-    $updateQuery = "UPDATE user SET fullName = :newFullName, phoneNumber = :phone, email = :email, password = :password WHERE idUser = :idUser";
+    // Handle file upload
+    if (isset($_FILES['profilePhoto']) && $_FILES['profilePhoto']['error'] == 0) {
+        $targetDir = "photoProfile/";
+        $targetFile = $targetDir . basename($_FILES['profilePhoto']['name']);
+        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+        // Check if file is an image
+        $check = getimagesize($_FILES['profilePhoto']['tmp_name']);
+        if ($check !== false) {
+            // Check file size (5MB limit)
+            if ($_FILES['profilePhoto']['size'] <= 5000000) {
+                // Allow certain file formats
+                if (in_array($imageFileType, ['jpg', 'png', 'jpeg', 'gif'])) {
+                    // Move the uploaded file to the target directory
+                    if (move_uploaded_file($_FILES['profilePhoto']['tmp_name'], $targetFile)) {
+                        $profilePhoto = $targetFile;
+                    } else {
+                        echo json_encode(['success' => false, 'message' => 'Sorry, there was an error uploading your file.']);
+                        exit();
+                    }
+                } else {
+                    echo json_encode(['success' => false, 'message' => 'Only JPG, JPEG, PNG & GIF files are allowed.']);
+                    exit();
+                }
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Sorry, your file is too large.']);
+                exit();
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'File is not an image.']);
+            exit();
+        }
+    }
+
+    $updateQuery = "UPDATE user SET fullName = :newFullName, phoneNumber = :phone, email = :email, password = :password, profilePhoto = :profilePhoto WHERE idUser = :idUser";
     $updateStmt = $conn->prepare($updateQuery);
     $updateStmt->bindParam(":newFullName", $newFullName);
     $updateStmt->bindParam(":phone", $phone);
     $updateStmt->bindParam(":email", $email);
     $updateStmt->bindParam(":password", $password);
+    $updateStmt->bindParam(":profilePhoto", $profilePhoto);
     $updateStmt->bindParam(":idUser", $user['idUser']);
     $updateStmt->execute();
 
     // Update session data
     $_SESSION['user']['fullName'] = $newFullName;
+    $_SESSION['user']['profilePhoto'] = $profilePhoto;
 
     // Send response
     echo json_encode(['success' => true, 'message' => 'Data berhasil diperbarui.']);
     exit();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <h3>Profile</h3>
             </div>
             <div class="form-container">
-                <form id="profile-form" method="POST" action="">
+                <form id="profile-form" method="POST" action="" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($user['fullName']); ?>">
@@ -68,6 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" value="<?php echo htmlspecialchars($user['password']); ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhoto">Profile Photo</label>
+                        <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*">
                     </div>
                     <button type="submit" id="save-button">Save</button>
                 </form>
