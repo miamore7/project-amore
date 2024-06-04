@@ -58,41 +58,41 @@ include('sidebar.php');
     </div>
 </body>
 <style>
-        .product-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            text-align: center;
-            margin: 20px;
-        }
-        .product-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .product-card h3, .product-card p {
-            margin: 10px 0;
-        }
-        .product-card button {
-            background-color: #28a745;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 0;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-    </style>
+    .product-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+    .product-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 300px;
+        text-align: center;
+        margin: 20px;
+    }
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .product-card h3, .product-card p {
+        margin: 10px 0;
+    }
+    .product-card button {
+        background-color: #28a745;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 0;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+</style>
 </html>

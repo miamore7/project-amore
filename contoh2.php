@@ -19,8 +19,8 @@ try {
     if (isset($_GET['jenis_course'])) {
         $jenis_course = $_GET['jenis_course'];
 
-        // Ambil data dari database berdasarkan jenis_course
-        $stmt = $conn->prepare("SELECT * FROM pasar WHERE jenis_course = :jenis_course");
+        // Ambil data dari database berdasarkan jenis_course dan status accepted
+        $stmt = $conn->prepare("SELECT * FROM pasar WHERE jenis_course = :jenis_course AND status = 'accepted'");
         $stmt->bindParam(':jenis_course', $jenis_course);
         $stmt->execute();
 
@@ -134,7 +134,7 @@ try {
             </tbody>
         </table>
     <?php else : ?>
-        <p>belum ada barang wkwkw</p>
+        <p>Belum ada barang yang diterima.</p>
     <?php endif; ?>
     <script>
         function showUpdateForm(id) {

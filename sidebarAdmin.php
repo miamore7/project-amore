@@ -14,6 +14,7 @@ $fullName = ($_SESSION['user']['fullName']);
      <li><a href="pasarAdmin.php"><i class="fas fa-shopping-cart"></i> Pasar</a></li>
      <li><a href="viewTransaksi.php"><i class="fas fa-book"></i> Transaksi</a></li>
      <li><a href="courseAdmin.php"><i class="fas fa-book"></i> Course</a></li>
+     <li><a href="requestPenjualan.php"><i class="fas fa-book"></i> Request Penjualan</a></li>
    </ul>
  </nav>
  <div class="others">
