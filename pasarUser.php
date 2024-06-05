@@ -36,4 +36,31 @@ include('sidebar.php');
     </div>
   </div>
   <a href="viewStatusBarang.php"><button>View Status Barang</button></a>
+    <style>
+      /* CSS untuk tautan */
+/* CSS untuk tombol */
+button {
+  background-color: #4CAF50; /* Warna latar belakang */
+  color: white; /* Warna teks */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Menghilangkan border */
+  border-radius: 5px; /* Border radius */
+  cursor: pointer; /* Pointer saat dihover */
+  text-decoration: none; /* Menghilangkan underline */
+  font-size: 16px; /* Ukuran font */
+}
+
+/* CSS untuk link */
+a {
+  text-decoration: none; /* Menghilangkan underline */
+}
+
+/* CSS untuk hover */
+button:hover {
+  background-color: #45a049; /* Warna latar belakang saat dihover */
+}
+
+    </style>
+</a>
+
 </div>
