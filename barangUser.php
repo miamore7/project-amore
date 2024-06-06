@@ -18,7 +18,8 @@ try {
     if (isset($_GET['jenis_course'])) {
         $jenis_course = $_GET['jenis_course'];
 
-        $stmt = $conn->prepare("SELECT * FROM pasar WHERE jenis_course = :jenis_course");
+        // Modify the query to filter out pending and rejected statuses
+        $stmt = $conn->prepare("SELECT * FROM pasar WHERE jenis_course = :jenis_course AND status NOT IN ('Pending', 'Rejected')");
         $stmt->bindParam(':jenis_course', $jenis_course);
         $stmt->execute();
 
@@ -53,7 +54,7 @@ include('sidebar.php');
                 </div>
             <?php endforeach; ?>
         <?php else : ?>
-            <p>Belum ada barang</p>
+            <p>Tidak ada barang yang tersedia atau barang yang tersedia memiliki status Pending atau Rejected.</p>
         <?php endif; ?>
     </div>
 </body>
