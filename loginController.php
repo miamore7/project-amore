@@ -17,6 +17,8 @@ if (isset($_POST['submitLogin'])) {
             $_SESSION['user']=$data;
             if ($data['email'] == 'admin@admin') {
                 header('Location: dashboardA.php');
+             } if ($data['email'] == 'mentor@mentor') {
+                    header('Location: dashboardMentor.php');
             } else {
                 header('Location: dashboardM.php');
             }

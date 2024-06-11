@@ -1,6 +1,6 @@
 <?php
 
-include('sidebar.php');
+include('sidebarM.php');
 
 // Memeriksa apakah pengguna sudah login
 if (isset($_SESSION['email'])) {
@@ -32,7 +32,7 @@ if ($courseDetails) {
 
 // Kueri untuk mengambil komentar dan balasan mentor
 $feedbackStmt = $conn->prepare("
-    SELECT f.komen, m.komenMentor 
+    SELECT f.id AS feedbackId, f.komen, m.komenMentor 
     FROM feedback f 
     LEFT JOIN mentorFeedback m ON f.id = m.idFeedback 
     WHERE f.idCourse = :courseId
@@ -53,7 +53,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
 
     if ($insertStmt->execute()) {
         // Refresh the page to show the new comment
-        header("Location: courseDetailsUser.php?title=" . urlencode($courseTitle) . "&sub_course=" . urlencode($subCourse));
+        header("Location: courseDetailsMentor.php?title=" . urlencode($courseTitle) . "&sub_course=" . urlencode($subCourse));
+        exit();
+    } else {
+        echo "Error: " . $insertStmt->errorInfo()[2];
+    }
+}
+
+// Tangani pengiriman balasan mentor
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['mentorReply'])) {
+    $mentorReply = $_POST['mentorReply'];
+    $feedbackId = $_POST['feedbackId'];
+    $idUser = $_SESSION['userId'];
+
+    $insertStmt = $conn->prepare("INSERT INTO mentorFeedback (komenMentor, idUser, idCourse, idFeedback) VALUES (:komenMentor, :idUser, :idCourse, :idFeedback)");
+    $insertStmt->bindValue(':komenMentor', $mentorReply);
+    $insertStmt->bindValue(':idUser', $idUser);
+    $insertStmt->bindValue(':idCourse', $courseId);
+    $insertStmt->bindValue(':idFeedback', $feedbackId);
+
+    if ($insertStmt->execute()) {
+        // Refresh the page to show the new mentor reply
+        header("Location: courseDetailsMentor.php?title=" . urlencode($courseTitle) . "&sub_course=" . urlencode($subCourse));
         exit();
     } else {
         echo "Error: " . $insertStmt->errorInfo()[2];
@@ -168,18 +189,23 @@ $conn = null; // Tutup koneksi
         <!-- Comment Section -->
         <div class="comments">
             <h3>Comments</h3>
-            <form method="post" action="">
-                <textarea name="comment" placeholder="Leave your comment here..." required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-            
             <!-- Display comments and mentor feedback -->
             <?php foreach ($feedbacks as $feedback): ?>
-                <?php if (!empty($feedback['komenMentor'])): ?>
-                    <div class="mentor-reply">
-                        <p><strong>Mentor's reply:</strong> <?php echo htmlspecialchars($feedback['komenMentor']); ?></p>
-                    </div>
-                <?php endif; ?>
+                <div class="user-comment">
+                    <p><strong>User comment:</strong> <?php echo htmlspecialchars($feedback['komen']); ?></p>
+                    <?php if (!empty($feedback['komenMentor'])): ?>
+                        <div class="mentor-reply">
+                            <p><strong>Mentor's reply:</strong> <?php echo htmlspecialchars($feedback['komenMentor']); ?></p>
+                        </div>
+                    <?php else: ?>
+                        <!-- Mentor reply form -->
+                        <form method="post" action="">
+                            <textarea name="mentorReply" placeholder="Reply to this comment..." required></textarea>
+                            <input type="hidden" name="feedbackId" value="<?php echo $feedback['feedbackId']; ?>">
+                            <button type="submit">Reply</button>
+                        </form>
+                    <?php endif; ?>
+                </div>
             <?php endforeach; ?>
         </div>
     </div>

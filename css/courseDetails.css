@@ -30,18 +30,32 @@ body {
 .course-details .description {
     font-size: 16px;
     color: #555;
+    margin-bottom: 30px;
 }
 
-.course-details .actions {
-    margin-top: 20px;
+.comments {
+    margin-top: 30px;
 }
 
-.course-details .actions form {
-    display: inline-block;
-    margin-right: 10px;
+.comments h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
 }
 
-.course-details .actions button {
+.comments form {
+    margin-bottom: 20px;
+}
+
+.comments textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.comments button {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -51,46 +65,22 @@ body {
     font-size: 16px;
 }
 
-.course-details .actions button:hover {
+.comments button:hover {
     background-color: #0056b3;
 }
 
-#update-form {
-    margin-top: 20px;
-    display: none;
-}
-
-#update-form h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-#update-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-#update-form input[type="text"],
-#update-form textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
+.user-comment, .mentor-reply {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
     border-radius: 4px;
-    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-#update-form button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
+.mentor-reply {
+    background-color: #eef;
 }
 
-#update-form button:hover {
-    background-color: #218838;
+.mentor-reply p {
+    margin: 0;
 }
