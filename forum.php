@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Check if nama parameter is set in the URL
         if (isset($_GET["nama"])) {
-            // Handle request to retrieve forum data based on name
+            // Handle request to retrieve forum data based on nama
             $nama = $_GET["nama"];
 
             // Insert the chat message into the database
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 // Check if nama parameter is set in the URL
 if (isset($_GET["nama"])) {
-    // Handle request to retrieve forum data based on name
+    // Handle request to retrieve forum data based on nama
     $nama = $_GET["nama"];
 
     // Execute query to retrieve forum data based on name
